@@ -15,8 +15,27 @@
 ```
 {
   id: number(PK, autoincrement),
-  : number(FK, F),
-  article: string(required, min: 10, max: 200),
+  id_user: number(required, FK to id.user),
+  article: string(required, min: 10, max: 300),
   title: string(required, min: 3, max: 50),
-  img:
+  img: optional(optional, path to file)
 }
+
+```
+### Likes
+```
+{
+  id: number(PK, autoincrement),
+  id_user: number(required, FK to id.user)
+}
+
+```
+### Comments
+```
+{
+  id: number(PK, autoincrement),
+  id_user: number(required, FK to id.user),
+  text: string(required, min: 0, max: 200 )
+}
+
+```
