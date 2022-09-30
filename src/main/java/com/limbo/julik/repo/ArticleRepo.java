@@ -1,6 +1,7 @@
-package com.limbo.julik.repo;
+package com.limbo.julik.Repo;
 
+import com.limbo.julik.Model.Article;
 import org.springframework.data.repository.CrudRepository;
 
-public interface Article extends CrudRepository<Article, Long> {
+public interface ArticleRepo extends CrudRepository<Article, Long> {
 }
