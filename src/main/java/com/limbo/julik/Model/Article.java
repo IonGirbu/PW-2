@@ -45,4 +45,13 @@ public class Article {
     public void setLikes(int likes) {
         this.likes = likes;
     }
+
+    public Article() {
+    }
+
+    public Article(String title, String fulltext, int likes) {
+        Title = title;
+        this.fulltext = fulltext;
+        this.likes = likes;
+    }
 }

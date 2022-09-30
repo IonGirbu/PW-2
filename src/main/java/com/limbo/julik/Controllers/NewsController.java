@@ -5,9 +5,7 @@ import com.limbo.julik.Repo.ArticleRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 
@@ -23,4 +21,16 @@ public class NewsController {
         return "news";
     }
 
+    @GetMapping("/News/add")
+
+    public String NewsAdd(Model model){
+        return "news-add";
+    }
+
+    @PostMapping("/News/add")
+    private String blogPostAdd(@RequestParam String title, @RequestParam String fulltext, @RequestParam int likes, Model model){
+       Article article = new Article(title, fulltext, likes);
+        articleRepo.save(article);
+        return "redirect:/News";
+    }
 }
