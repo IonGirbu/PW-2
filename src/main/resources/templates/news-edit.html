@@ -73,19 +73,16 @@
 
 <header th:insert="blocks/headers :: header"></header>
 
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
     <h1 th:text="${title}"></h1>
-    <h1>NEWS NOW</h1>
-
-        <div th:each="el : ${articles}" class="alert alert-info mt-2">
-            <h3 th:text="${el.Title}"></h3>
-            <h3 th:text="${el.fulltext}"></h3>
-            <button th:value="${el.likes}" class="btn btn-success" th:method="" ></button>
-            <p th:text="${el.likes}" class="d-inline"></p>
-            <p class="d-inline"> Likes</p>
-            <br><br>
-            <a th:href="'/News/' + ${el.id} "class="btn btn-warning">Details</a>
-        </div>
+    <h1>Editing a News</h1>
+    <div th:each="el : ${article}">
+    <form method="post">
+        <input type="text" th:value="${el.title}" name="title" placeholder="Type a title!" class="form-control"><br>
+        <textarea name="fulltext" placeholder="Type a text!" class="form-control" th:text="${el.fulltext}"/><br>
+        <input type="number" th:value="${el.likes}" name="likes" placeholder="trying" class="form-control"><br>
+        <button type="submit" class="btn btn-success">Edit this News</button><br>
+    </form></div>
 </div>
 
 <footer th:insert="blocks/footer :: footer"></footer>
